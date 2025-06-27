@@ -65,12 +65,19 @@ allprojects {
      */
     repositories {
         mavenCentral()
-        maven(Repos.sk89q) // WorldEdit/WorldGuard
-        maven(Repos.bstats) // bstats
-        maven(Repos.sponge) // Sponge, Configurate, and some other things
-        maven(Repos.spigot) // Spigot and Bukkit
-        maven(Repos.sonatype) // General Maven
-        mavenLocal() // For nms packages
+    
+        // Repositório funcional alternativo para bStats
+        maven {
+            url = uri("https://repo.codemc.io/repository/maven-public/")
+        }
+    
+        // Repositórios existentes (que podem estar quebrados)
+        maven(Repos.sk89q)
+        maven(Repos.bstats)
+        maven(Repos.sponge)
+        maven(Repos.spigot)
+        maven(Repos.sonatype)
+        mavenLocal()
     }
 
     // Sets all projects compatibility level to Java 8
